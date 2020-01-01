@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_home"
+        android:title="@string/home"
+        android:icon="@drawable/ic_lock_outline_white_26dp" />
+    <item
+        android:id="@+id/action_SOS"
+        android:title="@string/sos"
+        android:icon="@drawable/ic_lock_outline_white_26dp" />
+    <item
+        android:id="@+id/action_livechat"
+        android:title="@string/livechat"
+        android:icon="@drawable/ic_lock_outline_white_26dp" />
+    <item
+        android:id="@+id/action_report"
+        android:title="@string/report"
+        android:icon="@drawable/ic_lock_outline_white_26dp" />
+
+</menu>

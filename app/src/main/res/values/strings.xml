@@ -7,4 +7,12 @@
     <string name="forgot_password">Forgot your password?</string>
     <string name="no_account">Do not have an account?</string>
     <string name="create_account">Create an account</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="has_account">Already have an account?</string>
+    <string name="email">Email</string>
+    <string name="livechat">Livechat</string>
+    <string name="report">Report</string>
+    <string name="account">Account</string>
+    <string name="home">Home</string>
+    <string name="sos">SOS</string>
 </resources>
