@@ -10,8 +10,15 @@ import kotlinx.android.synthetic.main.activity_main.buttonLogin
 import kotlinx.android.synthetic.main.activity_main.buttonRegister
 import kotlinx.android.synthetic.main.activity_register.*
 import android.graphics.Color;
+import android.view.inputmethod.InputMethodManager
 import cn.pedant.SweetAlert.SweetAlertDialog
 import com.google.firebase.database.FirebaseDatabase
+import android.app.Activity
+import androidx.core.content.ContextCompat.getSystemService
+import androidx.core.app.ComponentActivity.ExtraData
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+
+
 
 
 class RegisterActivity: AppCompatActivity(){
@@ -19,21 +26,24 @@ class RegisterActivity: AppCompatActivity(){
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //Hide Status Bar
+
 
         setContentView(R.layout.activity_register)
 
 
 
 
+
         buttonRegister.setOnClickListener {
             registerAccount()
+        }
+
 
             buttonLogin.setOnClickListener {
                 val intent = Intent(this, LoginActivity::class.java)
                 startActivity(intent)
             }
-        }
+
     }
 
     private fun registerAccount() {
