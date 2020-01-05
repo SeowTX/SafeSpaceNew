@@ -8,10 +8,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.fragment_account.*
-
+import com.example.safespace.entity.User
 class AccountFragment: Fragment(){
     val TAG = "AccountFragment"
 
@@ -28,9 +33,22 @@ class AccountFragment: Fragment(){
             FirebaseAuth.getInstance().signOut()
 
             val intent = Intent(activity, LoginActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)
         }
 
+        val userId = FirebaseAuth.getInstance().currentUser?.uid?:""
+
+        val ref = FirebaseDatabase.getInstance().getReference("/users").child(userId)
+        ref.addListenerForSingleValueEvent(object: ValueEventListener{
+            override fun onDataChange(p0: DataSnapshot) {
+                val user = p0.getValue(User::class.java)
+                Toast.makeText(activity, "Username:"+user?.name, Toast.LENGTH_LONG).show()
+            }
+
+            override fun onCancelled(p0: DatabaseError) {
+            }
+        })
         return view
 
 

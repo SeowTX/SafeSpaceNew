@@ -36,12 +36,15 @@ class HomeActivity : AppCompatActivity(){
         // Setup bottom navigation bar
         myBottomNav = findViewById(R.id.bottom_nav)
 
+
+        // Load Article(Home Activity) after user login
         articleFragment = ArticleFragment()
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_host, articleFragment)
             .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
             .commit()
 
+        // When navigation items are clicked on
         myBottomNav.setOnNavigationItemSelectedListener {item ->
             when(item.itemId){
                 R.id.action_account ->{
@@ -87,15 +90,6 @@ class HomeActivity : AppCompatActivity(){
 
     }
 
-    private fun startLivechatFragment(){
-        val mgr = supportFragmentManager
-        val transaction = mgr.beginTransaction()
-        val fragment = LivechatFragment()
-        transaction.replace(R.id.fragment_host, fragment)
-        transaction.addToBackStack(null)
-        transaction.commit()
-
-    }
     private fun verifyUserAccess(){
         // If user has not logged in, take user to login page
         val user = FirebaseAuth.getInstance().currentUser
