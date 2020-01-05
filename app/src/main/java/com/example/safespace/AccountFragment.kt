@@ -38,12 +38,13 @@ class AccountFragment: Fragment(){
         }
 
         val userId = FirebaseAuth.getInstance().currentUser?.uid?:""
-
+        //Save user details to firebase
         val ref = FirebaseDatabase.getInstance().getReference("/users").child(userId)
         ref.addListenerForSingleValueEvent(object: ValueEventListener{
             override fun onDataChange(p0: DataSnapshot) {
                 val user = p0.getValue(User::class.java)
                 Toast.makeText(activity, "Username:"+user?.name, Toast.LENGTH_LONG).show()
+
             }
 
             override fun onCancelled(p0: DatabaseError) {
