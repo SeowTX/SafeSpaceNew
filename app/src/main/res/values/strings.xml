@@ -15,5 +15,17 @@
     <string name="account">Account</string>
     <string name="home">Home</string>
     <string name="sos">SOS</string>
+    <string name="welcome">Welcome to SafeSpace</string>
+    <string name="desc">Take control of your life, let us start today.</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="show_image" />
+    <string name="title">Title</string>
+    <string name="description">Description</string>
+    <string name="logo" />
+    <string name="new_image" />
+    <string name="full_title">fullTitle</string>
+    <string name="full_desc">fullDesc</string>
 
 </resources>

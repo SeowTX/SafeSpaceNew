@@ -8,11 +8,23 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.safespace.entity.Article
+import com.example.safespace.entity.ArticleAdapter
+import com.google.firebase.database.*
+import kotlinx.android.synthetic.main.fragment_article.*
+
 
 /**
  * A simple [Fragment] subclass.
  */
 class ArticleFragment : Fragment() {
+
+    lateinit var mDatabase: DatabaseReference
+    lateinit var articleList: MutableList<Article>
+    lateinit var list: RecyclerView
+
     val TAG = "ArticleFragment"
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -52,5 +64,40 @@ class ArticleFragment : Fragment() {
         Log.d(TAG, "onResume")
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
+        articleList = mutableListOf()
+
+        list = recyclerView
+
+        mDatabase = FirebaseDatabase.getInstance().getReference("articles")
+
+        mDatabase.addValueEventListener(object : ValueEventListener{
+            override fun onCancelled(error: DatabaseError) {
+
+            }
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                if(dataSnapshot!!.exists()){
+                    for(h in dataSnapshot.children){
+                        val article = h.getValue(Article::class.java)
+                        articleList.add(article!!)
+                    }
+
+                    val adapter = ArticleAdapter(articleList)
+
+                    val mLayoutManager = LinearLayoutManager(activity)
+                    mLayoutManager.reverseLayout = true
+
+                    list.layoutManager = mLayoutManager
+                    list.scrollToPosition(articleList.size-1)
+
+                    list.adapter = adapter
+                }
+
+            }
+
+        })
+
+    }
 }

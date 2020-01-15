@@ -8,12 +8,20 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:614594159641:android:450d8b49570fc4e82af688",
+        "mobilesdk_app_id": "1:614594159641:android:13a34b0d430a46f32af688",
         "android_client_info": {
-          "package_name": "com.example.firebasetest"
+          "package_name": "com.example.admin_article"
         }
       },
       "oauth_client": [
+        {
+          "client_id": "614594159641-i9eskbb64c05v911ee5o23v801ns1q76.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.admin_article",
+            "certificate_hash": "bea34090325ec860894404617760a79df11f237d"
+          }
+        },
         {
           "client_id": "614594159641-j2r4l45cc671pgulkeg2cq5f882qrn9d.apps.googleusercontent.com",
           "client_type": 3
@@ -43,6 +51,14 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "614594159641-aj2lldhpt32ro211bt2oioqgk7b11bd4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.safespace",
+            "certificate_hash": "bea34090325ec860894404617760a79df11f237d"
+          }
+        },
         {
           "client_id": "614594159641-j2r4l45cc671pgulkeg2cq5f882qrn9d.apps.googleusercontent.com",
           "client_type": 3
